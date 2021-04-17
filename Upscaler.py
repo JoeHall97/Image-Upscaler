@@ -13,6 +13,11 @@ def upscale(image_path, model_name, model_path, scale, output_path='./upscaled.p
   image = cv2.imread(image_path)
   sr.readModel(model_path)
 
+  # code for CUDA acceleration
+  # to use, opencv must be built with cuda support
+  # sr.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+  # sr.setPreferableBackend(cv2.dnn.DNN_TARGET_CUDA)
+
   # set the desired model and scale
   sr.setModel(model_name,scale)
 
